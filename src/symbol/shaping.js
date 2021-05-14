@@ -622,6 +622,8 @@ function shapeLines(shaping: Shaping,
                     if (!glyph) continue;
                     metrics = glyph.metrics;
                 }
+                // Adjust verticalAdvance for ZWSP
+                verticalAdvance = (codePoint !== 0x200b ? ONE_EM : 0);
 
                 // We don't know the baseline, but since we're laying out
                 // at 24 points, we can calculate how much it will move when
